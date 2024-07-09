@@ -12,16 +12,20 @@ function App() {
     }, []);
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <h1>Geo Visualization Dashboard</h1>
+        <div className="App min-h-screen bg-gray-100">
+            <header className="App-header bg-blue-500 text-white p-4">
+                <h1 className="text-2xl font-bold">Geo Visualization Dashboard</h1>
             </header>
-            <main>
-                <ol>
+            <main className="p-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {data.map(item => (
-                        <li key={item.topic}>{item.insight}: {item.country}, {item.title}</li>
+                        <div key={item.topic} className="bg-white shadow-md rounded-xl p-4">
+                            <h2 className="text-lg font-semibold">{item.insight}</h2>
+                            <h2 className="text-lg font-semibold">{item.country}</h2>
+                            <p className="text-gray-600">{item.title}</p>
+                        </div>
                     ))}
-                </ol>
+                </div>
             </main>
         </div>
     );
