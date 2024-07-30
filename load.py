@@ -1,30 +1,24 @@
 import json
-from app import app, db  # Import the Flask app and db instance
-from models import Geolocation
+from app import app, db
+from models.geolocation import Geolocation
 
 def truncate_string(value, max_length):
     if value and len(value) > max_length:
         return value[:max_length]
     return value
 
-# Load JSON data
 with open('jsondata.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
-# Create an application context
 with app.app_context():
-    # Process each item from JSON data and add to the database
     for item in data:
-        # Handle integer fields
         relevance = int(item['relevance']) if item['relevance'] != "" else None
         likelihood = int(item['likelihood']) if item['likelihood'] != "" else None
         intensity = int(item['intensity']) if item['intensity'] != "" else None
 
-        # Handle date fields
         published = item['published'] if item['published'] != "" else None
         added = item['added'] if item['added'] != "" else None
 
-        # Truncate string fields to a maximum length of 100 characters
         sector = truncate_string(item.get('sector'), 50)
         topic = truncate_string(item.get('topic'), 50)
         insight = truncate_string(item.get('insight'), 500)
@@ -35,7 +29,6 @@ with app.app_context():
         source = truncate_string(item.get('source'), 100)
         title = truncate_string(item.get('title'), 1000)
 
-        # Create Geolocation object
         geolocation = Geolocation(
             sector=sector,
             topic=topic,
@@ -54,5 +47,4 @@ with app.app_context():
         )
         db.session.add(geolocation)
 
-    # Commit changes to the database
     db.session.commit()

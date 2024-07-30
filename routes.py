@@ -1,22 +1,27 @@
 from flask import Flask, jsonify
 from app import app, db
-from models import Geolocation  # Import specific model here
+from models.geolocation import Geolocation
 
-# @app.route('/')
-# def index():
-#     geolocations = Geolocation.query.all()
-#     return render_template('index.html', geolocations=geolocations)
-
-@app.route('/', methods=['GET'])
+@app.route('/getAllGeoLocationData', methods=['GET'])
 def get_geolocations():
     geolocations = Geolocation.query.all()
     data = [
         {
             'id': geo.id,
+            'sector': geo.sector,
             'topic': geo.topic,
             'insight': geo.insight,
+            'url': geo.url,
+            'region': geo.region,
             'country': geo.country,
-            'title': geo.title
+            'published': geo.published,
+            'relevance': geo.relevance,
+            'pestle': geo.pestle,
+            'source': geo.source,
+            'title': geo.title,
+            'likelihood': geo.likelihood,
+            'intensity': geo.intensity,
+            'added': geo.added
         }
         for geo in geolocations
     ]
