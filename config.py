@@ -1,5 +1,14 @@
-import os
-
 class Config:
-    SQLALCHEMY_DATABASE_URI = 'postgresql://geo_user:geo_password@localhost/geovisualization'
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+ DEBUG = False
+ DEVELOPMENT = False
+ CSRF_ENABLED = True
+ ASSETS_DEBUG = False
+
+class ProductionConfig(Config):
+ pass
+
+class DevelopmentConfig(Config):
+ DEBUG = True
+ DEVELOPMENT = True
+ TEMPLATES_AUTO_RELOAD = True
+ ASSETS_DEBUG = True
