@@ -12,12 +12,12 @@ with open('jsondata.json', 'r', encoding='utf-8') as file:
 
 with app.app_context():
     for item in data:
-        relevance = int(item['relevance']) if item['relevance'] != "" else None
-        likelihood = int(item['likelihood']) if item['likelihood'] != "" else None
-        intensity = int(item['intensity']) if item['intensity'] != "" else None
+        relevance = int(item.get('relevance', 0)) if item.get('relevance') else None
+        likelihood = int(item.get('likelihood', 0)) if item.get('likelihood') else None
+        intensity = int(item.get('intensity', 0)) if item.get('intensity') else None
 
-        published = item['published'] if item['published'] != "" else None
-        added = item['added'] if item['added'] != "" else None
+        published = item.get('published') if item.get('published') else None
+        added = item.get('added') if item.get('added') else None
 
         sector = truncate_string(item.get('sector'), 50)
         topic = truncate_string(item.get('topic'), 50)
