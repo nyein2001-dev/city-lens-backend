@@ -20,8 +20,8 @@ Ensure you have the following installed on your system:
 ### Clone the Repository
 
 ```bash
-https://github.com/nyein2001-dev/MapInsight.git
-cd MapInsight
+https://github.com/nyein2001-dev/map-insight-backend.git
+cd map-insight-backend
 ```
 
 ## Contributing
