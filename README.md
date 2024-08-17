@@ -1,11 +1,11 @@
 # MapInsight
-An interactive web app using Flask, PostgreSQL, and D3.js to visualize geolocation data from JSON files. Features include dynamic visualizations, responsive design with React, and efficient data handling. Ideal for analyzing geographical data patterns. Contributions welcome!
+An interactive web app using Django, PostgreSQL, and D3.js to visualize geolocation data from JSON files. Features include dynamic visualizations, responsive design with React, and efficient data handling. Ideal for analyzing geographical data patterns. Contributions welcome!
 
 ## MapInsight is the Geo-Visualization Dashboard
 
-This project aims to create an interactive geo-visualization dashboard using Flask for the backend and React for the frontend. The project involves the following main tasks:
+This project aims to create an interactive geo-visualization dashboard using Django for the backend and React for the frontend. The project involves the following main tasks:
 1. Creating a PostgreSQL database from a given JSON data file.
-2. Developing a Flask application to handle backend processes.
+2. Developing a Django application to handle backend processes.
 3. Implementing a React application for the frontend interface.
 
 ## Installation
