@@ -31,3 +31,5 @@ Feel free to submit issues, pull requests, or feature requests. We welcome all c
 ---
 
 Happy Coding with MapInsight!
+
+heroku config:set SECRET_KEY=F6K3mPj9wZ0bL8Nn4cQxR2D7vS1oAeHtY5JkGxB8WmFz3iUqRvL6d9CpT0pNwQ4sO1fXbU7Z2kJvI3yM8rLtE5W9gH6A -a floating-thicket-34909
