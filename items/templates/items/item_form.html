@@ -1,0 +1,8 @@
+<!-- templates/items/item_form.html -->
+<h1>Item Form</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'item_list' %}">Back to List</a>
