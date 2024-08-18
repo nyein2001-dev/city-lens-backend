@@ -1,11 +1,11 @@
 # items/urls.py
-from django.urls import path
-from .views import item_list, item_detail, item_create, item_update, item_delete
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import ItemViewSet
+
+router = DefaultRouter()
+router.register(r'items', ItemViewSet)
 
 urlpatterns = [
-    path('', item_list, name='item_list'),
-    path('<int:pk>/', item_detail, name='item_detail'),
-    path('create/', item_create, name='item_create'),
-    path('<int:pk>/edit/', item_update, name='item_update'),
-    path('<int:pk>/delete/', item_delete, name='item_delete'),
+    path('', include(router.urls)),
 ]

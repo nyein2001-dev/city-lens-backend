@@ -1,3 +1,4 @@
+# items/models.py
 from django.db import models
 
 class Item(models.Model):
