@@ -1,4 +1,3 @@
-# items/views.py
 from rest_framework import viewsets
 from .models import Item
 from .serializers import ItemSerializer
