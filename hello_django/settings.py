@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'dashboard',
     'rest_framework',
     'drf_yasg',
+    'django_filters',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
