@@ -20,6 +20,7 @@ CSRF_TRUSTED_ORIGINS = ['https://mighty-brushlands-85114-cdad31a2996b.herokuapp.
 
 INSTALLED_APPS = [
     'items',
+    'dashboard',
     'rest_framework',
     'drf_yasg',
     'django.contrib.admin',
