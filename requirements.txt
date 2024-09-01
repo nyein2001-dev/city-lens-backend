@@ -7,4 +7,3 @@ drf-yasg==1.21.7
 django-filter==24.3.0
 django_extensions==3.2.3
 django-cors-headers==4.4.0
-setuptools==74.0.0
