@@ -1,11 +1,9 @@
 from rest_framework import viewsets, serializers
 from django_filters.rest_framework import DjangoFilterBackend
-from .models import Geolocation
-from .serializers import GeolocationSerializer
+from .models import Geolocation, Stop, Route
+from .serializers import GeolocationSerializer, StopSerializer, RouteSerializer
 from .pagination import CustomPageNumberPagination
 from .filters import GeolocationFilter
-from .models import Stop, Route
-from .serializers import StopSerializer, RouteSerializer
 
 class StopViewSet(viewsets.ModelViewSet):
     queryset = Stop.objects.all()
@@ -19,7 +17,7 @@ class RouteListSerializer(serializers.ModelSerializer):
         fields = ['id', 'route_id', 'name', 'agency_id', 'color']
 
 class RouteDetailSerializer(serializers.ModelSerializer):
-    stops = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    stops = StopSerializer(many=True, read_only=True)  # Use StopSerializer here
 
     class Meta:
         model = Route
@@ -36,7 +34,6 @@ class RouteViewSet(viewsets.ModelViewSet):
         if self.action == 'retrieve':
             return RouteDetailSerializer
         return RouteSerializer
-
 
 class GeolocationViewSet(viewsets.ModelViewSet):
     queryset = Geolocation.objects.all()

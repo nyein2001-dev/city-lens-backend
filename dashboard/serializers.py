@@ -18,7 +18,7 @@ class RouteSerializer(serializers.ModelSerializer):
             if request.parser_context['kwargs'].get('pk'):
                 self.fields = {
                     'shape': serializers.JSONField(),
-                    'stops': serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+                    'stops': StopSerializer(many=True, read_only=True)
                 }
             else:
                 self.fields = {
